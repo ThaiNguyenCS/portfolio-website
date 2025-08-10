@@ -1,0 +1,57 @@
+name: Build & Deploy React (Vite) via FTP
+
+on:
+    push:
+        branches: [master] # đổi nếu bạn dùng nhánh khác
+    workflow_dispatch:
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+
+            - name: Install deps
+              run: npm ci
+
+            - name: Build
+              run: npm run build
+
+            - name: Add .htaccess for SPA
+              run: |
+                  mkdir -p dist
+                  if [ -f ./.deploy/.htaccess ]; then
+                    cp ./.deploy/.htaccess dist/.htaccess
+                  else
+                    cat > dist/.htaccess <<'HT'
+                    Options -MultiViews
+                    RewriteEngine On
+                    RewriteCond %{REQUEST_FILENAME} -f [OR]
+                    RewriteCond %{REQUEST_FILENAME} -d
+                    RewriteRule ^ - [L]
+                    RewriteRule . /index.html [L]
+                    HT
+                  fi
+
+            - name: Deploy via FTP/FTPS
+              uses: SamKirkland/FTP-Deploy-Action@v4
+              with:
+                  server: ${{ secrets.FTP_HOST }}
+                  username: ${{ secrets.FTP_USERNAME }}
+                  password: ${{ secrets.FTP_PASSWORD }}
+                  port: ${{ secrets.FTP_PORT || 21 }}
+                  local-dir: dist/
+                  server-dir: ${{ secrets.FTP_PATH }}
+                  # Bảo mật hơn nếu host hỗ trợ FTPS:
+                  # security: strict
+                  exclude: |
+                      **/.git*
+                      **/.github*
+                      **/node_modules/**
