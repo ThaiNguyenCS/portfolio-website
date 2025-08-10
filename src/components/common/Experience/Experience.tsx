@@ -1,5 +1,3 @@
 export default function Experience() {
-  return (
-    <div class>Experience</div>
-  )
+    return <div>Experience</div>;
 }
