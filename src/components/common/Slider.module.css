@@ -1,0 +1,27 @@
+@keyframes ltr-slide {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes rtl-slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.ltr-slider-track {
+    animation: ltr-slide linear infinite;
+    animation-duration: var(--duration, 30s); /* fallback */
+}
+
+.rtl-slider-track {
+    animation: rtl-slide linear infinite;
+    animation-duration: var(--duration, 30s); /* fallback */
+}
