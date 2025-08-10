@@ -49,7 +49,7 @@ jobs:
                   password: ${{ secrets.FTP_PASSWORD }}
                   port: ${{ secrets.FTP_PORT || 21 }}
                   local-dir: dist/
-                  server-dir: ${{ secrets.FTP_PATH }}
+                  server-dir: /
                   # Bảo mật hơn nếu host hỗ trợ FTPS:
                   # security: strict
                   exclude: |
