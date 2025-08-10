@@ -1,0 +1,18 @@
+@keyframes avt-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    30% {
+        /* end of spin */
+        transform: rotate(720deg) rotateY(720deg) rotateX(720deg);
+    }
+    100% {
+        /* holding position for the rest */
+        transform: rotate(720deg) rotateY(720deg) rotateX(720deg);
+    }
+}
+
+/* Applying it */
+.avt-holder {
+    animation: avt-animation 2.5s ease-in-out infinite;
+}

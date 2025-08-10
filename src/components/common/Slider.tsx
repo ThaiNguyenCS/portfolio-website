@@ -14,7 +14,6 @@ export default function Slider({ children, direction }: { children: React.ReactN
         const distancePx = el.scrollWidth * 0.5; // = 50%
         const speed = 60;
         const durationSec = distancePx / speed;
-        console.log("Distance:", distancePx, "Speed:", speed, "Duration:", durationSec);
         el.style.setProperty("--duration", `${durationSec}s`);
     }, []);
 
