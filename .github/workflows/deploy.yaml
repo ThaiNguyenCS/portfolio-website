@@ -30,14 +30,14 @@ jobs:
                   if [ -f ./.deploy/.htaccess ]; then
                     cp ./.deploy/.htaccess dist/.htaccess
                   else
-                    cat > dist/.htaccess <<'HT'
-                    Options -MultiViews
-                    RewriteEngine On
-                    RewriteCond %{REQUEST_FILENAME} -f [OR]
-                    RewriteCond %{REQUEST_FILENAME} -d
-                    RewriteRule ^ - [L]
-                    RewriteRule . /index.html [L]
-                    HT
+                    printf '%s\n' \
+                    "Options -MultiViews" \
+                    "RewriteEngine On" \
+                    "RewriteCond %{REQUEST_FILENAME} -f [OR]" \
+                    "RewriteCond %{REQUEST_FILENAME} -d" \
+                    "RewriteRule ^ - [L]" \
+                    "RewriteRule . /index.html [L]" \
+                      > dist/.htaccess
                   fi
 
             - name: Deploy via FTP/FTPS
