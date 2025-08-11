@@ -3,7 +3,7 @@ import styles from "./Introduction.module.css";
 
 export default function Introduction() {
     return (
-        <section className="w-full mx-auto px-10 py-4 bg-[#00ff01] h-screen">
+        <section className="w-full mx-auto px-10 py-4 h-screen">
             <div className="flex flex-row justify-center">
                 <div className="basis-3/4">
                     <h1 className="text-4xl font-bold text-center mt-10">Hello world, I'm Thai Nguyen</h1>

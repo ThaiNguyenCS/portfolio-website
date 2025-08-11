@@ -1,4 +1,4 @@
-import SkillItem from "../common/SkillItem";
+import SkillItem from "../common/SkillItem/SkillItem";
 import jsLogo from "../../assets/skill-images/js.png";
 import tsLogo from "../../assets/skill-images/typescript.png";
 import pythonLogo from "../../assets/skill-images/python.png";
@@ -84,7 +84,7 @@ const ToolsSkills = [
 
 export default function Skill() {
     return (
-        <section className="w-full mx-auto bg-blue-400 pb-10">
+        <section className="w-full mx-auto pb-10">
             <h1 className="text-center">My Skills</h1>
             <div className="flex flex-col gap-6">
                 <Slider direction="rtl">

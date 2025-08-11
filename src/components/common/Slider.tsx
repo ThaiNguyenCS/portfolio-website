@@ -19,7 +19,7 @@ export default function Slider({ children, direction }: { children: React.ReactN
 
     return (
         <div className="w-full overflow-hidden relative">
-            <div ref={trackRef} className={`${styles[`${direction}-slider-track`]} flex items-center gap-10 w-max`}>
+            <div ref={trackRef} className={`${styles[`${direction}-slider-track`]} flex items-center gap-10 w-max hover:[animation-play-state:paused]`}>
                 {children}
                 {children}
             </div>

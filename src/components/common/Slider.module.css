@@ -21,7 +21,16 @@
     animation-duration: var(--duration, 30s); /* fallback */
 }
 
+/* .ltr-slider-track:hover {
+    animation-play-state: paused;
+} */
+
 .rtl-slider-track {
     animation: rtl-slide linear infinite;
     animation-duration: var(--duration, 30s); /* fallback */
 }
+
+/* .rtl-slider-track:hover {
+    animation-play-state: paused;
+} */
+

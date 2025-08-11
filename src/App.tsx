@@ -1,5 +1,6 @@
 import "./App.css";
 import { AutoBgm } from "./components/BackgroundMusic/BackgroundMusic";
+import Experience from "./components/Experience/Experience";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Introduction from "./components/Introduction/Introduction";
@@ -14,6 +15,7 @@ function App() {
                 <Header />
                 <Introduction />
                 <Skill />
+                <Experience />
                 <Project />
                 <Footer />
             </div>
